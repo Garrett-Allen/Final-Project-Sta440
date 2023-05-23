@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Gulf of Alaska Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="gulf_alaska_files/libs/clipboard/clipboard.min.js"></script>
+<script src="gulf_alaska_files/libs/quarto-html/quarto.js"></script>
+<script src="gulf_alaska_files/libs/quarto-html/popper.min.js"></script>
+<script src="gulf_alaska_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="gulf_alaska_files/libs/quarto-html/anchor.min.js"></script>
+<link href="gulf_alaska_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="gulf_alaska_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="gulf_alaska_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="gulf_alaska_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="gulf_alaska_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Gulf of Alaska Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyverse' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.4.0     ✔ purrr   0.3.4
+✔ tibble  3.1.8     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.9.1, GDAL 3.4.3, PROJ 7.2.1; sf_use_s2() is TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'gganimate' was built under R version 4.2.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gifski)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'gifski' was built under R version 4.2.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(transformr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'transformr' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'transformr'
+
+The following object is masked from 'package:sf':
+
+    st_normalize</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjson)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'kableExtra' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'kableExtra'
+
+The following object is masked from 'package:dplyr':
+
+    group_rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>gulf1<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/goa1984_1987.csv"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>gulf2<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/goa1990_1999.csv"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>gulf3<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/goa2001_2005.csv"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>gulf4<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/goa2007_2013.csv"</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>gulf5<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/goa2015_2019.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>get_api_draws <span class="ot">&lt;-</span> <span class="cf">function</span>(amount){</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    URL <span class="ot">&lt;-</span> <span class="fu">URLencode</span>(<span class="fu">paste0</span>(<span class="st">'https://apps-st.fisheries.noaa.gov/ods/foss/afsc_groundfish_survey/?q={</span><span class="sc">\"</span><span class="st">srvy</span><span class="sc">\"</span><span class="st">:</span><span class="sc">\"</span><span class="st">GOA</span><span class="sc">\"</span><span class="st">}&amp;offset='</span>,amount))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  api_pull <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">read_json</span>(URL)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> api_pull <span class="sc">%&gt;%</span> </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest</span>(<span class="at">cols =</span> data) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest_wider</span>(data)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  x</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co"># results &lt;- get_api_draws(0)</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>length_of_draws <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">127475</span>, <span class="at">to =</span> <span class="dv">218825</span>, <span class="at">by =</span> <span class="dv">25</span>), <span class="at">scientific =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(x <span class="cf">in</span> length_of_draws){</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  api_draw <span class="ot">&lt;-</span> <span class="fu">get_api_draws</span>(x)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">rows_append</span>(results,api_draw)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>api_draws <span class="ot">&lt;-</span> results</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="fu">select</span>(results,<span class="sc">-</span>links),<span class="st">"api_draws.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>alaska_gulf <span class="ot">&lt;-</span> <span class="fu">rbind</span>(gulf1,gulf2,gulf3,gulf4,gulf5) <span class="sc">%&gt;%</span>  </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">LONGITUDE =</span> <span class="fu">as.numeric</span>(LONGITUDE),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">LATITUTDE =</span> <span class="fu">as.numeric</span>(LATITUDE),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">YEAR =</span> <span class="fu">as.numeric</span>(YEAR)) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(LONGITUDE)) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>LATITUTDE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
+
+Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
+
+Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>alaska_gulf <span class="ot">&lt;-</span> alaska_gulf <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"LONGITUDE"</span>,<span class="st">"LATITUDE"</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>top10_species <span class="ot">&lt;-</span> alaska_gulf <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SCIENTIFIC <span class="sc">!=</span> <span class="st">""</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(SCIENTIFIC) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(SCIENTIFIC)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>alaska_gulf <span class="sc">%&gt;%</span> </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SCIENTIFIC <span class="sc">%in%</span> top10_species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 68815 features and 15 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: -169.9914 ymin: 52.4063 xmax: -132.6795 ymax: 60.3205
+Geodetic CRS:  WGS 84
+First 10 features:
+   STATION STRATUM YEAR         DATETIME   WTCPUE  NUMCPUE              COMMON
+1    41-24     210 1984 07/21/1984 10:00   12.399   4.2711         Pacific cod
+2    41-24     210 1984 07/21/1984 10:00  61.2198  126.211 Pacific ocean perch
+3    36-24     111 1984 07/12/1984 16:00 201.9142 242.2093     walleye pollock
+4    36-24     111 1984 07/12/1984 16:00    3.692  11.5963 arrowtooth flounder
+5    36-24     111 1984 07/12/1984 16:00   5.1507   1.7504     Pacific halibut
+6    36-24     111 1984 07/12/1984 16:00  28.5925   8.0955         Pacific cod
+7    36-24     111 1984 07/12/1984 16:00   0.0595   0.4376            rex sole
+8    41-25     111 1984 07/21/1984 08:00  11.1863  11.3638 arrowtooth flounder
+9    41-25     111 1984 07/21/1984 08:00    0.987   1.9343       flathead sole
+10   41-25     111 1984 07/21/1984 08:00   1.7546   3.6267            rex sole
+                  SCIENTIFIC   SID BOT_DEPTH BOT_TEMP SURF_TEMP VESSEL CRUISE
+1        Gadus macrocephalus 21720       216      5.1      10.8     57 198401
+2            Sebastes alutus 30060       216      5.1      10.8     57 198401
+3        Gadus chalcogrammus 21740       101      5.3       6.7     57 198401
+4        Atheresthes stomias 10110       101      5.3       6.7     57 198401
+5    Hippoglossus stenolepis 10120       101      5.3       6.7     57 198401
+6        Gadus macrocephalus 21720       101      5.3       6.7     57 198401
+7    Glyptocephalus zachirus 10200       101      5.3       6.7     57 198401
+8        Atheresthes stomias 10110       172      5.4       9.4     57 198401
+9  Hippoglossoides elassodon 10130       172      5.4       9.4     57 198401
+10   Glyptocephalus zachirus 10200       172      5.4       9.4     57 198401
+   HAUL                   geometry
+1   140 POINT (-166.6077 53.28233)
+2   140 POINT (-166.6077 53.28233)
+3   101 POINT (-167.0588 53.29117)
+4   101 POINT (-167.0588 53.29117)
+5   101 POINT (-167.0588 53.29117)
+6   101 POINT (-167.0588 53.29117)
+7   101 POINT (-167.0588 53.29117)
+8   139 POINT (-166.6362 53.30617)
+9   139 POINT (-166.6362 53.30617)
+10  139 POINT (-166.6362 53.30617)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>top10_timeplot <span class="ot">&lt;-</span> alaska_gulf <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SCIENTIFIC <span class="sc">%in%</span> top10_species) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SCIENTIFIC, YEAR) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> SCIENTIFIC, <span class="at">x =</span> YEAR, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> SCIENTIFIC), <span class="at">linetype =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>() <span class="sc">+</span> </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Populations of top 10 most sampled species over time"</span>,</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">group =</span> <span class="st">"Scientific Name"</span>,</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of Times Sampled"</span>) </span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>top10_counts <span class="ot">&lt;-</span>alaska_gulf <span class="sc">%&gt;%</span> </span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(SCIENTIFIC <span class="sc">!=</span> <span class="st">""</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(SCIENTIFIC) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>top10_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> SCIENTIFIC </th>
+   <th style="text-align:right;"> n </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Atheresthes stomias </td>
+   <td style="text-align:right;"> 10439 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hippoglossus stenolepis </td>
+   <td style="text-align:right;"> 8853 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gadus chalcogrammus </td>
+   <td style="text-align:right;"> 8326 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Glyptocephalus zachirus </td>
+   <td style="text-align:right;"> 7605 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gadus macrocephalus </td>
+   <td style="text-align:right;"> 7497 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hippoglossoides elassodon </td>
+   <td style="text-align:right;"> 6296 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Microstomus pacificus </td>
+   <td style="text-align:right;"> 5841 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anoplopoma fimbria </td>
+   <td style="text-align:right;"> 5298 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sebastes alutus </td>
+   <td style="text-align:right;"> 4930 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fusitriton oregonensis </td>
+   <td style="text-align:right;"> 3730 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Environmental modeling is becoming increasingly important as climate change increases in severity, as businesses, scientists, and the policymakers need to be able to quickly react to changes in species’ population. For my individual project, I intend to try to tackle this topic using methods in the spatiotemporal modeling literature, as well as try to find relationships between the covariates, species abundance, and key metrics of animal welfare in the Alaskan Gulf region.</p>
+<p>The data I will be working with in this case study is the Alaskan Fishery Science Center’s Groundfish and Crab Assessment Program (GAP), specifically surveys of populations on the bottom of the Alaskan Gulf. There are two main datasets that I will be working with during this project; one is a dataset drawn from the National Oceanic and Atmospheric Administration (NOAA) website, which details this survey over the years 1984-1987, 1990-1999, 2001-2005, 2007-2013, and 2015-2019. The data was collected via a process called bottom trawling, where researchers drag a large net across the bottom of the ocean floor to capture ground fish, crabs, and other crustaceans in order to assess their population.</p>
+<p>The other dataset is drawn from the NOAA API, which is essentially the same data, but with more variables released than on the NOAA website. This data will allow a more thorough analysis of fish populations with more covariates available; however, due to its size, it is not currently present on the Github repository. This will be addressed when more specific uses are found for the data from the API.</p>
+</section>
+<section id="aims" class="level2">
+<h2 class="anchored" data-anchor-id="aims">Aims</h2>
+<p>For this project, I hope to tackle a few different types of modeling for the project, with the most prominent being a spatiotemporal modeling. I hope to be able to use the covariates present in the data to model fish populations among some of the most numerous sampled species in the dataset. This is useful for fisheries and policymakers, since they need to be able to project fish populations to limit overfishing and implement conservation policies.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>top10_timeplot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="gulf_alaska_files/figure-html/species-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="initial-eda" class="level2">
+<h2 class="anchored" data-anchor-id="initial-eda">Initial EDA</h2>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
